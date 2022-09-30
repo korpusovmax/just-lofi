@@ -1,7 +1,7 @@
 # Here it is. Just a lofi player. 
 
 
-![hello preview](justlofi\icons\preview_hello.png)
+<img src="justlofi\icons\preview_hello.png" alt="hello preview"/>
 <br>
 <div style="font-size: 14pt;"> * Standing ovation *</div>
 
