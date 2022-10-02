@@ -1,3 +1,5 @@
+import { music_ended_log } from './main.js'
+
 /////////////////////////
 //TRACKLIST DATA
 /////////////////////////
@@ -21,9 +23,6 @@ var tracklist_data = [
       {'name': 'Oyoyoy', 'artist': 'Bito bitox', 'id': '1O-2O83tMcRI_dSOozPGVl2kws9ATrxWK'},
       {'name': 'Love Me Right', 'artist': 'Loe Brezy', 'id': '1Dfx44PF7Xqhp9BxwbfnpCfmFLzu7xgvM'},
       {'name': 'Flavor', 'artist': 'Summerfields', 'id': '1Y0BPh9OQdMFcJwOAiRurK8BYx6JDhBqS'},
-      // {'name': '', 'artist': '', 'id': ''},
-      // {'name': 'Golden ratio', 'artist': 'Russki dilemma', 'id': '1icUZ4bM4uPUh_CBGfP5Bhjgp1e6nemY-'},
-      // {'name': 'Hollie Would', 'artist': 'SkiDs', 'id': '1lA7QMC880fGQDFbKoZ8l6Bf3h-nn2vN7'},
       // {'name': '', 'artist': '', 'id': ''},
     ]
   },
@@ -107,11 +106,17 @@ class AudioPLayer {
   load_next() {
     this.current_track = this.next_track;
     this.next_track = this.playlist.get_next();
+    //autoplay after playlist has been shuffled
+    if (this.id == 0) {
+      this.play_or_stop();
+    }
 
     //create update and finish events
     this.current_track.audio.addEventListener('ended', (event) => {
+      // logEvent(analytics, 'music ended');
+      music_ended_log();
+      this.next_track.play_or_stop();
       this.load_next();
-      this.current_track.play_or_stop();
     });
     this.current_track.audio.addEventListener('timeupdate', (event) => {
         var line = document.getElementById("line_progress");
@@ -125,8 +130,22 @@ class AudioPLayer {
     document.getElementById('artist').innerHTML = this.current_track.artist;
   }
 
+  check(duration_start, p) {
+    var duration_end = p.current_track.audio.currentTime;
+    //console.log(duration_start, duration_end);
+    //readyState 4 - audio has been loaded
+    if (duration_start == duration_end && p.current_track.audio.readyState == 4) {
+      console.log('error while playing audio, sorry');
+      p.load_next();
+      p.play_or_stop();
+    }
+  }
+
   play_or_stop() {
     this.current_track.play_or_stop();
+    if (this.is_playing()) {
+      setTimeout(this.check, 200, this.current_track.audio.currentTime, this);
+    }
   }
 
   is_playing() {
@@ -137,8 +156,8 @@ class AudioPLayer {
 /////////////////////////
 //GLOBALS
 /////////////////////////
-playlist = new Playlist(tracklist_data[0]);
-player = new AudioPLayer(playlist);
+var playlist = new Playlist(tracklist_data[0]);
+var player = new AudioPLayer(playlist);
 
 var icon = document.getElementById("play_btn");
 
@@ -146,10 +165,10 @@ var icon = document.getElementById("play_btn");
 function play() {
   player.play_or_stop();
   //change play_btn icon
-  var newIcon = document.createElement("img");
+  var newIcon = icon;//document.createElement("img");
   newIcon.setAttribute("id", "play_btn");
   newIcon.setAttribute("class", "icon_lg");
-  newIcon.setAttribute("onclick", "play()");
+  // newIcon.setAttribute("onclick", "play()");
 
   if (player.is_playing()) {
     newIcon.setAttribute("src", "icons/pause_icon.png");
@@ -167,3 +186,5 @@ function next() {
   player.load_next();
   play();
 }
+
+export { play, next }
