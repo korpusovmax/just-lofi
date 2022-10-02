@@ -12,6 +12,12 @@
     <link rel="shortcut icon" href="icons/icon.ico" type="image/x-icon">
   </head>
   <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+    <!-- <script src="base.js"></script> -->
+    <script type="module" src="main.js"></script>
+
     <svg width="100vw" height="5px" style="display: flex;">
       <line id="line_progress"
         x1="0"
@@ -29,15 +35,27 @@
         <div id="name" class="name">Name</div>
         <div id="artist" class="artist">Artist</div>
       </div>
-      <btn class="btn-next" onclick="next()">
+      <btn id="next_btn" class="btn-next">
         <img src="icons/next_icon.png" alt="альтернативный текст" class="icon_sm">
       </btn>
     </div>
 
-    <img id="play_btn" src="icons/play_icon.png" alt="Play" class="icon_lg" onclick="play()">
+    <img id="play_btn" src="icons/play_icon.png" alt="Play" class="icon_lg">
 
+    <script type="module" src="player.js"></script>
+    <script type="module">
+      import { play_log, next_log } from './main.js';
+      import { play, next } from './player.js';
 
-    <!-- <script src="base.js"></script> -->
-    <script src="player.js"></script>
+      document.getElementById("play_btn").addEventListener('click', () => {
+        play();
+        play_log();
+      });
+
+      document.getElementById("next_btn").addEventListener('click', () => {
+        next();
+        next_log();
+      });
+    </script>
   </body>
 </html>
