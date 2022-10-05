@@ -113,7 +113,6 @@ class AudioPLayer {
 
     //create update and finish events
     this.current_track.audio.addEventListener('ended', (event) => {
-      // logEvent(analytics, 'music ended');
       music_ended_log();
       this.next_track.play_or_stop();
       this.load_next();
@@ -132,7 +131,6 @@ class AudioPLayer {
 
   check(duration_start, p) {
     var duration_end = p.current_track.audio.currentTime;
-    //console.log(duration_start, duration_end);
     //readyState 4 - audio has been loaded
     if (duration_start == duration_end && p.current_track.audio.readyState == 4) {
       console.log('error while playing audio, sorry');
@@ -165,10 +163,9 @@ var icon = document.getElementById("play_btn");
 function play() {
   player.play_or_stop();
   //change play_btn icon
-  var newIcon = icon;//document.createElement("img");
+  var newIcon = icon;
   newIcon.setAttribute("id", "play_btn");
   newIcon.setAttribute("class", "icon_lg");
-  // newIcon.setAttribute("onclick", "play()");
 
   if (player.is_playing()) {
     newIcon.setAttribute("src", "icons/pause_icon.png");
