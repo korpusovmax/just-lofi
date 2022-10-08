@@ -51,7 +51,7 @@ function randomInt(min, max) { // min and max included
 class Playlist {
   constructor(map) {
     this.id = -1;
-    this.name = map['name'];
+    this.name = map['playlist_name'];
     this.tracklist = map['tracklist'];
   }
 
