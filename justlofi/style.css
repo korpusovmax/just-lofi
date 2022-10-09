@@ -28,6 +28,7 @@ body {
   opacity: 0.85;
   width: 48px;
   height: 48px;
+  cursor: pointer;
 }
 .btn-next i {
   padding: 10px;
@@ -44,4 +45,5 @@ body {
   transform: translate(-50%, -50%);
   width: 122px;
   height: 122px;
+  cursor: pointer;
 }
