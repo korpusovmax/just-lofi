@@ -26,7 +26,7 @@ export default {
   width: 118.48px;
   height: 114.32px;
 
-  background-image: url('../assets/play_btn.png');
+  background-image: url('@/assets/play_btn.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -36,7 +36,7 @@ export default {
     width: 225px;
     height: 225px;
 
-    background-image: url('../assets/pause_btn.png');
+    background-image: url('@/assets/pause_btn.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
