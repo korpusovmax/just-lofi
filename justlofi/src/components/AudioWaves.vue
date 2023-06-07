@@ -1,8 +1,8 @@
 <template>
   <div class="waves" v-if="playing">
-    <div v-if="playing" class="wave"></div>
-    <div v-if="playing" class="wave"></div>
-    <div v-if="playing" class="wave"></div>
+    <img v-if="playing" class="wave" src="../assets/star.png" alt="">
+    <img v-if="playing" class="wave" src="../assets/star.png" alt="">
+    <img v-if="playing" class="wave" src="../assets/star.png" alt="">
   </div>
 </template>
 
@@ -34,12 +34,6 @@ export default {
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-
-
-  background-image: url("../assets/star.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 
   animation-duration: 12s;
   animation-name: rotating;
