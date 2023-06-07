@@ -1,18 +1,18 @@
 <template>
   <div class="container" id="main">
-    <audio-waves :playing="is_playing"/>
+    <audio-waves :playing="is_playing" @click="log_volume"/>
     <play-button :playing="is_playing" @click="play_btn_clicked"/>
     <track-info :track="track" :artist="artist" @click="next_btn_clicked"/>
   </div>
 </template>
 
 <script>
-import { Playlist, AudioPLayer, tracklist_data } from '@/player';
+import { Playlist, AudioPLayer, get_random_playlist } from '@/player';
 import PlayButton from "@/components/PlayButton.vue";
 import AudioWaves from "@/components/AudioWaves.vue";
 import TrackInfo from "@/components/TrackInfo.vue";
 
-let playlist = new Playlist(tracklist_data[0]);
+let playlist = new Playlist(get_random_playlist());
 let player = new AudioPLayer(playlist);
 
 export default {
@@ -43,6 +43,9 @@ export default {
       }
       player.load_next();
       this.play_btn_clicked();
+    },
+    log_volume() {
+      console.log(player.current_track.get_volume())
     }
   }
 }

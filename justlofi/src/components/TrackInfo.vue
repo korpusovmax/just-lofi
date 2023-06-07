@@ -60,6 +60,8 @@ export default {
     }
   }
   &__icon {
+    cursor: pointer;
+
     width: 115.03px;
     height: 108.48px;
 

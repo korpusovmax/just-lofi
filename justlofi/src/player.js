@@ -5,29 +5,26 @@ const tracklist_data = [
     {
         'playlist_name': 'Focus flow',
         'tracklist': [
-            // {'name': 'Cavern', 'artist': 'Lil Joke', 'id': '1gRdpx42bXFOulki1Aniu6o4r7l_9TWcX'},
-            // {'name': 'City Glow', 'artist': 'ELEWAKA', 'id': '1C6DKi-IL-WDYDW6KgOLLg30EcKHzjgKx'},
-            // {'name': 'Come With A Sparkle', 'artist': 'Namaskar Blunt', 'id': '1ommAot3R3EnKUWRnhJUDaAL26AfucAUz'},
-            // {'name': 'Lantana', 'artist': 'Rooey', 'id': '16FHa6blBFStZbmDnIXardRa1cQkpIas8'},
-            // {'name': 'Lepricorn Ride', 'artist': 'Sebastian Flecci', 'id': '1EFWr6Zhywrl79si96J1Cs2w3TC1essCH'},
-            // {'name': 'Neomatter', 'artist': 'O k O', 'id': '1R375eoEmYL_dCR56JGGIBhyWLIp7rHje'},
             {'name': 'Neon', 'artist': 'Dusty Decks', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/Dusty_Decks_-_Neon_(BiffHard.click).mp3'},
-            // {'name': 'Plant Based', 'artist': 'Lé Mon', 'id': '1jKtaFt2QSfY5lAOhntkBLqlSgkSt6DIr'},
-            // {'name': 'Purple Dye', 'artist': 'Calle de phnk', 'id': '1OMQltoVBTNMrZzfloGCj1tMXV2DKAGLZ'},
             {'name': 'Sunset', 'artist': 'Clifford, and Louk', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/Clifford,%20Louk%20-%20Sunset.mp3'},
-            // {'name': 'We Are Love', 'artist': 'Lucavietski', 'id': '1V4odBQmLYtwR76pgQBibcf_hpAbEep21'},
-            // {'name': 'Backdrop', 'artist': 'Konteks', 'id': '1nL9bYu9HGjhPxduktjdct3gpDVAV4zVd'},
-            // {'name': 'Down the Mews', 'artist': 'Louk, Clifford, faff', 'id': '1QJCNUI3CWp1JMOwbkdeP2o2xTUobELUe'},
+            {'name': 'We Are Love', 'artist': 'Lucavietski', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/Lucavietski%20-%20We%20Are%20Love_(Mp3Bullet.ru).mp3'},
+            {'name': 'Backdrop', 'artist': 'Konteks', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/Konteks%20-%20Backdrop_(Mp3Bullet.ru).mp3'},
+            {'name': 'Down the Mews', 'artist': 'Louk, Clifford, faff', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/Louk,%20Clifford,%20faff%20-%20Down%20the%20Mews.mp3'},
             {'name': 'Oyoyoy', 'artist': 'Bito bitox', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/bito_bitox_-_oyoyoy_(BiffHard.click).mp3'},
-            // {'name': 'Love Me Right', 'artist': 'Loe Brezy', 'id': '1Dfx44PF7Xqhp9BxwbfnpCfmFLzu7xgvM'},
-            // {'name': 'Flavor', 'artist': 'Summerfields', 'id': '1Y0BPh9OQdMFcJwOAiRurK8BYx6JDhBqS'},
+            {'name': 'Love Me Right', 'artist': 'Loe Brezy', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/Loe%20Brezy%20-%20Love%20Me%20Right_(Mp3Bullet.ru).mp3'},
+            {'name': 'Flavor', 'artist': 'Summerfields', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/Summerfields%20-%20Flavor_(Mp3Bullet.ru).mp3'},
             // {'name': '', 'artist': '', 'id': ''},
         ]
     },
     {
-        'playlist_name': 'Instrumental',
+        'playlist_name': 'Aesthetic',
         'tracklist': [
-            {'name': 'Selflessly', 'artist': 'Toby Tranter', 'id': '1LIo8MPbPIcbWCv9P2LGH9HvqJg4Bj5zc'},
+            {'name': 'Mrs Magic', 'artist': 'Strawberry Guy', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/aesthetic/spotifydown.com%20-%20Mrs%20Magic.mp3'},
+            {'name': 'Flaming Hot Cheetos', 'artist': 'Clairo', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/aesthetic/spotifydown.com%20-%20Flaming%20Hot%20Cheetos.mp3'},
+            {'name': 'like i need u', 'artist': 'keshi', 'id': 'https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/aesthetic/SpotifyMate.com%20-%20like%20i%20need%20u%20-%20keshi.mp3'},
+            // {'name': '', 'artist': '', 'id': ''},
+            // {'name': '', 'artist': '', 'id': ''},
+            // {'name': '', 'artist': '', 'id': ''},
         ]
     },
 ];
@@ -82,6 +79,40 @@ class AudioTrack {
         this.name = map['name'];
         this.artist = map['artist'];
         this.audio = new Audio(get_source_link(this.id));
+
+        // Создание AudioContext
+        this.audioContext = new AudioContext();
+
+        // Загрузка аудио файла
+        let audioSource = this.audioContext.createBufferSource();
+        audioSource.connect(this.audioContext.destination);
+        fetch(get_source_link(this.id))
+            .then(response => response.arrayBuffer())
+            .then(arrayBuffer => this.audioContext.decodeAudioData(arrayBuffer))
+            .then(audioBuffer => {
+                audioSource.buffer = audioBuffer;
+            });
+
+        // Создание AnalyserNode
+        this.analyser = this.audioContext.createAnalyser();
+        this.analyser.fftSize = 2048;
+        audioSource.connect(this.analyser);
+
+        // Получение уровня громкости аудио данных
+        let bufferLength = this.analyser.frequencyBinCount;
+        this.dataArray = new Uint8Array(bufferLength);
+        this.analyser.getByteFrequencyData(this.dataArray);
+        let volume = this.dataArray.reduce(function(a, b) { return a + b; }) / bufferLength;
+    }
+
+    get_volume() {
+        let sampleRate = this.audioContext.sampleRate;
+        console.log(sampleRate, this.artist)
+        let sampleIndex = Math.floor(this.audio.currentTime);
+        console.log(sampleIndex)
+        this.analyser.getByteFrequencyData(this.dataArray);
+        console.log(this.dataArray)
+        return this.dataArray[sampleIndex];
     }
 
     play_or_stop() {
@@ -152,4 +183,8 @@ class AudioPLayer {
     }
 }
 
-export { Playlist, AudioPLayer, tracklist_data }
+function get_random_playlist() {
+    return tracklist_data[randomInt(0, 1)]
+}
+
+export { Playlist, AudioPLayer, get_random_playlist }
