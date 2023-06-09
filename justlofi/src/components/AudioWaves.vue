@@ -12,6 +12,12 @@ export default {
     playing: {
       type: Boolean,
       required: true
+    },
+    scale1: {
+      type: Number
+    },
+    scale2: {
+      type: Number
     }
   }
 }
@@ -24,13 +30,13 @@ export default {
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
 
-  animation: start-scaling 2s ease-in-out, scaling 2s 2s infinite ease-in-out alternate;
+  animation: start-scaling 2s ease-in-out, scaling 3s 2s infinite ease-in-out alternate;
 }
 .wave {
   width: 512px;
   height: 591px;
 
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
@@ -46,7 +52,16 @@ export default {
   animation-delay: 2.5s;
 }
 .wave:nth-child(3) {
-  animation: rotating 10s 1.5s infinite, scaling-w 2s ease-in-out infinite alternate;
+  animation: rotating 10s 1.5s infinite;//, scaling-w 2s ease-in-out infinite alternate;
+
+  transition: all 250ms ease-in-out;
+  width: v-bind('(scale1-0.2)*512+"px"');
+  height: v-bind('(scale1-0.2)*591+"px"');
+}
+.wave:nth-child(2) {
+  transition: all 250ms ease-in-out;
+  width: v-bind('(scale2)*512+"px"');
+  height: v-bind('(scale2)*591+"px"');
 }
 
 
@@ -68,23 +83,23 @@ export default {
   }
 }
 
-@keyframes scaling-w {
-  from {
-    width: 0.65*512px;
-    height: 0.65*591px;
-  }
-  to {
-    width: 0.95*512px;
-    height: 0.95*591px;
-  }
-}
+//@keyframes scaling-w {
+//  from {
+//    width: 0.65*512px;
+//    height: 0.65*591px;
+//  }
+//  to {
+//    width: 0.95*512px;
+//    height: 0.95*591px;
+//  }
+//}
 
 @keyframes scaling {
   from {
-    transform: scale(1);
+    transform: scale(0.9);
   }
   to {
-    transform: scale(1.3);
+    transform: scale(1.2);
   }
 }
 
@@ -93,7 +108,7 @@ export default {
     transform: scale(0.2);
   }
   to {
-    transform: scale(1);
+    transform: scale(0.9);
   }
 }
 

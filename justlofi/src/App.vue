@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="main">
-    <audio-waves :playing="is_playing" @click="log_volume"/>
+    <audio-waves :playing="is_playing" :scale1="volume1*0.3+1" :scale2="1+volume2*0.3"/>
     <play-button :playing="is_playing" @click="play_btn_clicked"/>
     <track-info :track="track" :artist="artist" @click="next_btn_clicked"/>
   </div>
@@ -13,7 +13,7 @@ import AudioWaves from "@/components/AudioWaves.vue";
 import TrackInfo from "@/components/TrackInfo.vue";
 
 let playlist = new Playlist(get_random_playlist());
-let player = new AudioPLayer(playlist);
+let player;
 
 export default {
   components: {TrackInfo, AudioWaves, PlayButton},
@@ -21,7 +21,9 @@ export default {
     return {
       is_playing: false,
       track: '',
-      artist: ''
+      artist: '',
+      volume1: 0,
+      volume2: 0
     }
   },
   methods: {
@@ -33,7 +35,11 @@ export default {
       this.artist = player.current_track.artist;
 
       this.$nextTick(() => {
-        player.check()
+        player.check();
+        player.current_track.audio.addEventListener('timeupdate', (event) => {
+          this.update_volume();
+          //console.log(this.volume1, this.volume2)
+        });
       })
     },
     next_btn_clicked() {
@@ -44,9 +50,17 @@ export default {
       player.load_next();
       this.play_btn_clicked();
     },
-    log_volume() {
-      console.log(player.current_track.get_volume())
-    }
+    update_volume() {
+      player.current_track.get_volume(0.4).then(data => {
+        this.volume1 = data;
+      });
+      player.current_track.get_volume(1).then(data => {
+        this.volume2 = data;
+      });
+    },
+  },
+  mounted() {
+    player = new AudioPLayer(playlist);
   }
 }
 </script>

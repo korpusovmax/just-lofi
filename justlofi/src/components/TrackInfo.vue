@@ -25,17 +25,28 @@ export default {
 .container {
   max-height: 100px;
   display: flex;
+  justify-content: space-between;
+  //flex-wrap: wrap;
   align-items: center;
 
-  position: absolute;
-  bottom: 56px;
-  left: 52px;
+  @media (max-width: 580px) {
+    & {
+      justify-content: start;
+      flex-direction: row-reverse;
+    }
+  }
+
+  position: fixed;
+  bottom: 36px;
+  left: 36px;
+  padding-right: 36+8px;
+  margin-bottom: 8px;
 
   font-family: 'Inter', sans-serif;
 
   &__track {
-    font-size: 52px;
-    line-height: 63px;
+    font-size: 48px;
+    white-space: nowrap;
 
     color: rgba(255, 255, 255, 0.9);
 
@@ -48,7 +59,8 @@ export default {
   }
   &__artist {
     margin-top: -4px;
-    font-size: 42px;
+    font-size: 36px;
+    line-break: strict;
 
     color: rgba(255, 255, 255, 0.7);
 
@@ -67,8 +79,8 @@ export default {
 
     @media (max-width: 580px) {
       & {
-        width: 0.8*115.03px;
-        height: 0.8*108.48px;
+        width: 0.7*115.03px;
+        height: 0.7*108.48px;
       }
     }
   }
