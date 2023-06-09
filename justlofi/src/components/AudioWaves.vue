@@ -1,8 +1,8 @@
 <template>
   <div class="waves" v-if="playing">
-    <img v-if="playing" class="wave" src="@/assets/star.png" alt="">
-    <img v-if="playing" class="wave" src="@/assets/star.png" alt="">
-    <img v-if="playing" class="wave" src="@/assets/star.png" alt="">
+    <img v-if="playing" class="wave" src="https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/assets/star.png" alt="">
+    <img v-if="playing" class="wave" src="https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/assets/star.png" alt="">
+    <img v-if="playing" class="wave" src="https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/assets/star.png" alt="">
   </div>
 </template>
 

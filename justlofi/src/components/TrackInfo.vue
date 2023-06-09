@@ -4,7 +4,7 @@
       <p class="container__track">{{track}}</p>
       <p class="container__artist">{{artist}}</p>
     </div>
-    <img v-if="track" class="container__icon" src="@/assets/next_btn.png" alt="next"/>
+    <img v-if="track" class="container__icon" src="https://kxmwptxemvajkckbummx.supabase.co/storage/v1/object/public/music/assets/next_btn.png" alt="next"/>
   </div>
 </template>
 
