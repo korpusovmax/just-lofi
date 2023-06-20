@@ -6,7 +6,7 @@
 
 
 
-## https://justlofi.web.app/
+## https://korpusovmax.github.io/just-lofi/
 
 ## Motivation
 <div style="font-size: 16pt;">
